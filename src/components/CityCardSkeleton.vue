@@ -10,7 +10,7 @@
       <AnimatedPlaceholder class="max-w-[95%] h-[250px]" />
     </div>
 
-    <div class="flex flex-col justify-end flex-1 gap-4 px-4 mb-6">
+    <div class="flex flex-col justify-end flex-1 gap-4 px-5 mb-6">
       <AnimatedPlaceholder class="max-w-[80%] w-full" />
       <AnimatedPlaceholder class="max-w-[60%] w-full" />
     </div>
