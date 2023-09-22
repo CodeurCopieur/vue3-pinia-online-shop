@@ -20,7 +20,9 @@ export const  useProductStore = defineStore('productStore', {
         const data = await res.json()
 
         this.products = data.products
-        this.loading = false
+        setTimeout(()=> {
+          this.loading = false
+        }, 1500)
 
       } catch (error) {
         console.log(error);
