@@ -3,18 +3,17 @@ import { defineStore } from "pinia";
 export const  useProductStore = defineStore('productStore', {
   state: ()=> ({
     products: [],
-    loading: false
+    loading: true
   }),
   getters: {
-
+    getProductById: (state) => (id) => {
+      return state.products.find((product) => product.id === id);
+    },
   },
   actions: {
 
     async getProducts() {
-
       try {
-
-        this.loading = true
 
         const res = await fetch('https://dummyjson.com/products')
         const data = await res.json()
@@ -22,7 +21,7 @@ export const  useProductStore = defineStore('productStore', {
         this.products = data.products
         setTimeout(()=> {
           this.loading = false
-        }, 1500)
+        }, 1200)
 
       } catch (error) {
         console.log(error);
