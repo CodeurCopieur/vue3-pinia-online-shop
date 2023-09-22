@@ -18,10 +18,6 @@
   <!-- loading -->
 
   <template v-if="loading">
-    <!-- <div 
-    
-    class="loading border border-indigo-500 max-w-2xl bg-indigo-400 p-1.5 text-center my-8 mx-auto text-white">Loading tâches...
-    </div> -->
     <CityCardSkeleton
       class=" h-[350px] rounded-md shadow-md overflow-hidden"
       v-for="(product, i) in products" :key="i" />
