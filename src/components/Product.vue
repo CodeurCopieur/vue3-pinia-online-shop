@@ -4,9 +4,6 @@
       type: Object
     }
   });
-
-  /* import */
-  import { useRoute } from 'vue-router';
 </script>
 
 <template>
