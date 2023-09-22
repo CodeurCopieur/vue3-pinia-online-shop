@@ -9,8 +9,6 @@ export default () => {
     // fetch tasks
     productsStore.getProducts()
   })
-  
-
 
   const products = computed(() => productsStore.products);
 
