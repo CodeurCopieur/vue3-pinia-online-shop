@@ -6,8 +6,10 @@ export const  useProductStore = defineStore('productStore', {
     loading: true
   }),
   getters: {
-    getProductById: (state) => (id) => {
-      return state.products.find((product) => product.id === id);
+    getProductById(state) {
+      return (id) => {
+        return state.products.find((product) => product.id === id);
+      };
     },
   },
   actions: {
