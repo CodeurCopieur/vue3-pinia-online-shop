@@ -5,13 +5,6 @@ export const  useProductStore = defineStore('productStore', {
     products: [],
     loading: true
   }),
-  getters: {
-    getProductById(state) {
-      return (id) => {
-        return state.products.find((product) => product.id === id);
-      };
-    },
-  },
   actions: {
 
     async getProducts() {
@@ -21,6 +14,8 @@ export const  useProductStore = defineStore('productStore', {
         const data = await res.json()
 
         this.products = data.products
+        console.log('Produits chargés avec succès :', this.products);
+
         setTimeout(()=> {
           this.loading = false
         }, 1200)
@@ -29,5 +24,6 @@ export const  useProductStore = defineStore('productStore', {
         console.log(error);
       }
     }
+
   }
 })
