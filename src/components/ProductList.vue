@@ -1,20 +1,19 @@
 <script setup>
   /* imports */
+
   import { storeToRefs } from 'pinia'
   import { useProductStore } from '@/store/productStore'
-  import useProducts from '@/composables/useProducts';
   import CityCardSkeleton from '@/components/CityCardSkeleton.vue'
   import Product from '@/components/Product.vue'
 
-  /* composables */
-  const { products } = useProducts();
   /* store */
   const productStore  = useProductStore();
 
-  const { loading } = storeToRefs(productStore);
+  const { loading, products } = storeToRefs(productStore);
+  
 </script>
 
-<template>
+<template >
 
   <!-- loading -->
 
