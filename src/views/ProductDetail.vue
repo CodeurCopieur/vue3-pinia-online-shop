@@ -47,21 +47,52 @@
         <div class="flex items-center">
           <div class="flex items-center">
           <h2 class="font-butler text-3xl md:text-4xl lg:text-4.5xl">
-            {{ title }}
+            {{ selectedProduct.title }}
           </h2>
-          <p v-if="selectedProduct.discountPercentage" class="ml-8 rounded-full px-5 py-2 font-hk text-sm font-bold uppercase leading-none">
-            {{ selectedProduct.discountPercentage }}% on
-          </p>
         </div>
         </div>
         <div class="flex items-center pt-3">
-          <span class="font-hk text-2xl text-secondary">${{ price }}</span>
+          <span class="text-2xl text-secondary">${{ selectedProduct.price }}</span>
 
         </div>
         <div class="flex items-center pt-3 pb-8">
 
         </div>
       </div>
+      <div class="flex pb-5">
+        <p class="m-0">Availability:</p>
+        <p class="font-bold pl-3 text-emerald-600 m-0" v-if="selectedProduct.stock > 1">
+          En stock
+        </p>
+        <p v-else class="font-bold pl-3 text-red-600">
+          Pas de stock
+        </p>
+      </div>
+      <p class="pb-5 m-0">{{  selectedProduct.description }}</p>
+      <div class="flex items-center justify-between pb-8">
+        <div class="w-1/3 sm:w-1/5">
+          <p class="m-0">Quantity</p>
+        </div>
+        <div class="flex w-2/3 sm:w-5/6" x-data="{ productQuantity: 1 }">
+          <label for="quantity-form" class="relative block h-0 w-0 overflow-hidden">Quantity form</label>
+          <input type="number" id="quantity-form" class="form-quantity form-input w-16 rounded-r-none py-0 px-2 text-center" x-model="productQuantity" min="1" value="1">
+          <div class="flex flex-col">
+            <span class="flex-1 cursor-pointer rounded-tr border border-l-0 border-grey-darker bg-white px-1" @click="productQuantity++">
+              <i class="bx bxs-up-arrow pointer-events-none text-xs text-primary"></i>
+            </span>
+            <span class="flex-1 cursor-pointer rounded-br border border-t-0 border-l-0 border-grey-darker bg-white px-1" @click="productQuantity> 1 ? productQuantity-- : productQuantity=1">
+              <i class="bx bxs-down-arrow pointer-events-none text-xs text-primary"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="group flex pb-8">
+        <a href="/cart" class="py-4 px-8 mr-4 md:mr-6 no-underline rounded border-2 border-emerald-600">Add to cart</a>
+        <a href="/cart" class="py-4 px-8 bg-emerald-600 text-white no-underline rounded">BUY NOW</a>
+      </div>
+      <p class="text-secondary">
+        <span class="pr-2">Categories:</span> <span class="font-bold">{{ selectedProduct.category }}</span>
+      </p>
     </div>
   </div>
 </template>
