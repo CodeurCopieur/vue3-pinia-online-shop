@@ -20,6 +20,15 @@
     return store.products.find((item) => item.id === Number(route.params.id))
   });
 
+  const addToCart = () => {
+    store.addToCart(selectedProduct.value)
+    router.push({name: 'CartView'})
+  };
+
+  const isInBag = () => {
+    store.isInBag(selectedProduct.value)
+  }
+
 </script>
 
 <template>
@@ -88,9 +97,10 @@
       </div>
       <div class="group flex pb-8">
         <button 
-        @click="router.push({name: 'CartView'})"
-          class="py-4 px-8 mr-4 mr-4 text-emerald-600 bg-white no-underline rounded hover:bg-emerald-600 hover:text-white border-solid border-2 border-emerald-600 cursor-pointer">Add to cart</button>
-        <button class="py-4 px-8 mr-4 bg-emerald-600 border-solid border-2 border-emerald-600 text-white no-underline rounded cursor-pointer">BUY NOW</button>
+          v-if="!isInBag(selectedProduct.value)"
+          @click="addToCart"
+          class="py-4 px-8 mr-4 mr-4 text-emerald-600 bg-white no-underline rounded hover:bg-emerald-600 hover:text-white border-solid border-2 border-emerald-600 cursor-pointer">Ajouter au panier</button>
+        <button v-else class="py-4 px-8 mr-4 bg-red-600 border-solid border-2 border-red-600 text-white no-underline rounded cursor-pointer">supprimer du panier</button>
         <button 
           @click="router.push({name: 'Home'})"
           class="py-4 px-8 bg-emerald-600 border-solid border-2 border-emerald-600 text-white no-underline rounded cursor-pointer">Retour au catalogue</button>
