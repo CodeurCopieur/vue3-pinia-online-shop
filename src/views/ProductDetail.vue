@@ -64,7 +64,7 @@
         <p class="font-bold pl-3 text-emerald-600 m-0" v-if="selectedProduct.stock > 1">
           En stock
         </p>
-        <p v-else class="font-bold pl-3 text-red-600">
+        <p v-else class="font-bold pl-3 text-red-600 m-0">
           Pas de stock
         </p>
       </div>
