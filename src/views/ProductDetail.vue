@@ -87,7 +87,9 @@
         </div>
       </div>
       <div class="group flex pb-8">
-        <button class="py-4 px-8 mr-4 mr-4 text-emerald-600 bg-white no-underline rounded hover:bg-emerald-600 hover:text-white border-solid border-2 border-emerald-600 cursor-pointer">Add to cart</button>
+        <button 
+        @click="router.push({name: 'CartView'})"
+          class="py-4 px-8 mr-4 mr-4 text-emerald-600 bg-white no-underline rounded hover:bg-emerald-600 hover:text-white border-solid border-2 border-emerald-600 cursor-pointer">Add to cart</button>
         <button class="py-4 px-8 mr-4 bg-emerald-600 border-solid border-2 border-emerald-600 text-white no-underline rounded cursor-pointer">BUY NOW</button>
         <button 
           @click="router.push({name: 'Home'})"
