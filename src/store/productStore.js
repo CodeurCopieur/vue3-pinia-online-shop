@@ -28,9 +28,6 @@ export const  useProductStore = defineStore('productStore', {
     addToCart(product) {
       this.Cart.push(product)
     },
-    isInBag(product){
-      return this.Cart.find( item => item.id == product.id)
-    }
 
   }
 })
