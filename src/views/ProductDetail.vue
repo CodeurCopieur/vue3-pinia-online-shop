@@ -29,6 +29,10 @@
     return store.Cart.find( item => item.id == productId)
   };
 
+  const removeFromCart = ()=>{
+    store.removeFromCart(selectedProduct.value)
+  };
+
 </script>
 
 <template>
@@ -100,7 +104,9 @@
           v-if="!isInBag(productId)"
           @click="addToCart"
           class="py-4 px-8 mr-4 mr-4 text-emerald-600 bg-white no-underline rounded hover:bg-emerald-600 hover:text-white border-solid border-2 border-emerald-600 cursor-pointer">Ajouter au panier</button>
-        <button v-else class="py-4 px-8 mr-4 bg-red-600 border-solid border-2 border-red-600 text-white no-underline rounded cursor-pointer">supprimer du panier</button>
+        <button v-else
+          @click.stop="removeFromCart"
+          class="py-4 px-8 mr-4 bg-red-600 border-solid border-2 border-red-600 text-white no-underline rounded cursor-pointer">supprimer du panier</button>
         <button 
           @click="router.push({name: 'Home'})"
           class="py-4 px-8 bg-emerald-600 border-solid border-2 border-emerald-600 text-white no-underline rounded cursor-pointer">Retour au catalogue</button>
