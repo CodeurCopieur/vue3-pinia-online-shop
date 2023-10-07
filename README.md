@@ -1,4 +1,4 @@
-# Project Title
+# vue3 pinia online shop
 
 Créer une boutique en ligne avec un catalogue, une page de détails du produit et un panier en moins d'une heure.
 
