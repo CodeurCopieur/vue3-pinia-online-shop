@@ -27,7 +27,7 @@ export const  useProductStore = defineStore('productStore', {
     },
     addToCart(product) {
       this.Cart.push(product)
-    },
+    }
 
   }
 })
