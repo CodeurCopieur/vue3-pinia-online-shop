@@ -11,6 +11,16 @@
     store.removeFromCart(product)
   };
 
+  const orderTotal = ()=> {
+     
+     var total = 0;
+     store.Cart.forEach( item => {
+       total += item.price * 1;
+     });
+
+     return total.toFixed(2);
+   };
+
 </script>
 
 <template>
@@ -77,6 +87,11 @@
               <h4 class="font-hkbold pb-3 text-center text-2xl text-secondary sm:text-left">
                 Total du panier
               </h4>
+
+              <div class="flex justify-between pt-3">
+                <span>Total</span>
+                <span>Grand Total: US$ {{ orderTotal() }}</span>
+              </div>
             </div>
           </div>
         </div>
