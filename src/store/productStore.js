@@ -25,8 +25,16 @@ export const  useProductStore = defineStore('productStore', {
         console.log(error);
       }
     },
+
     addToCart(product) {
       this.Cart.push(product)
+    },
+
+    removeFromCart(product) {
+      const found = this.Cart.find(  elt => elt.id === product.id)
+      const isLargerNumber =  elt => elt === found
+
+      this.Cart.splice(this.Cart.findIndex(isLargerNumber), 1)
     }
 
   }
